@@ -1,0 +1,48 @@
+*{
+    font-family: sans-serif;
+}
+
+#Home > * h1{
+    letter-spacing: 3px;
+}
+
+#Education > * h2{
+    letter-spacing: 2px;
+}
+
+#Skills > * h2{
+    letter-spacing: 1.5px;
+}
+
+#Contact > * h1{
+    letter-spacing: 1.5px;
+}
+
+#img-nav{
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    object-fit:cover;
+}
+
+#img-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.5);
+}
+
+#img-home{
+    object-fit:cover;
+    height: 100%;
+    width: 100%;
+}
+
+.rounded-circle{
+    text-align: right;
+    object-fit:cover;
+}
+
+#skills-header{
+    font-size: 40px;
+}
