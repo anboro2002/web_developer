@@ -1,7 +1,7 @@
 /* names */
 
-var playerName1 = Prompt("Player 1:");
-var playerName2 = Prompt("Player 2:");
+var playerName1 = prompt("Player 1:");
+var playerName2 = prompt("Player 2:");
 
 /* random dice */
 
