@@ -51,3 +51,22 @@ body {
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
+
+#howToPlay{ 
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+
+.linkDiv{
+  margin-bottom: 50px;
+  background-color: aqua;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.linkDiv:hover{
+  text-decoration: underline;
+}
