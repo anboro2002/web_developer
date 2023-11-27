@@ -9,6 +9,7 @@ $(document).keydown( function(){                                    /* Detectare
         $("#level-title").text("Level " + level);
         nextSequence();
         gameStarted=true;
+        $(".linkDiv").hide();
     }
 })
 
