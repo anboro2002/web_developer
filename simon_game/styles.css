@@ -1,75 +1,72 @@
-var buttonColours = ["red","blue","green","yellow"];
-var gamePattern = [];
-var userClickedPattern = [];
-var level = 0;
-var gameStarted = false;
-
-$(document).keydown( function(){                                    /* Detectare apasare prima tasta */
-    if(!gameStarted){
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        gameStarted=true;
-        $(".linkDiv").hide();
-    }
-})
-
-$(".btn").click(function(){                                         /* functie pentru apasare de user */
-    var userChosenColour = $(this).attr("id");
-    userClickedPattern.push(userChosenColour);
-
-    playSound(userChosenColour);
-    animatePress(userChosenColour);
-    checkAnswer(userClickedPattern.length - 1);
-});
-
-function checkAnswer(currentLevel){                                 /* verificare trecere level */
-    if(userClickedPattern[currentLevel] === gamePattern[currentLevel]){
-        if(userClickedPattern.length === gamePattern.length){
-            setTimeout(function(){
-                nextSequence();
-            }, 1000)
-        }
-        
-    }
-    else{
-        playSound("wrong");
-        $("body").addClass("game-over");
-        setTimeout(function(){
-            $("body").removeClass("game-over");
-        }, 200);
-        $("#level-title").text("Game Over, Press Any Key to restart");
-        startOver();
-    }
+body {
+  text-align: center;
+  background-color: #011F3F;
 }
 
-function nextSequence(){                                            /* functie pentru apasare random*/
-    userClickedPattern = [];
-
-    level++;
-    $("#level-title").text("Level " + level);
-
-    var randomNumber = Math.floor(Math.random() * 4);
-    var randomChosenColour = buttonColours[randomNumber];
-    gamePattern.push(randomChosenColour);
-
-    $("#"+randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-    playSound(randomChosenColour);
+#level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: #FEF2BF;
 }
 
-function playSound(name){                                           /* functie pentru sunet */
-    var audio = new Audio("sounds/"+ name+ ".mp3");
-    audio.play();
+.container {
+  display: block;
+  width: 50%;
+  margin: auto;
+
 }
 
-function animatePress(currentColour){                               /* functie pentru animarea butonului apasat*/
-    $("."+currentColour).addClass("pressed");
-    setTimeout(function(){
-        $("."+currentColour).removeClass("pressed");
-    }, 100);
+.btn {
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
 }
 
-function startOver(){                                               /* resetare joc */
-    level = 0;
-    gamePattern = [];
-    gameStarted=false;
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+#howToPlay{ 
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+
+.linkDiv{
+  margin-bottom: 50px;
+  background-color: aqua;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.linkDiv:hover{
+  text-decoration: underline;
 }
