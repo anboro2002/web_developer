@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="weather-title">Weather App</h1>
+		<% if (locals.weatherCondition) { %>
+			<div class="container weather-answer">
+				<h1 id="city-name">
+					<%= weatherLocation %>
+				</h1>
+				<div>
+					<%= weatherCondition %> 
+					with temperatures between <%= weatherMin %>°C and <%= weatherMax %>°C
+				</div>
+				<div class="home-button">
+					<form action="/" method="get">
+						<button id="search-button" type="submit">Search another location</button>
+					</form>
+				</div>
+			</div>
+        <% } else { %>
+        <div class="search-container">
+            <form id="form" class="form" method="get" action="/submit">
+                <input type="text" id="city-input" name="location" placeholder="Enter your location...">
+                <button id="search-button">Search</button>
+            </form>
+        </div>
+		<div class="intro-message">
+            Welcome to your favourite weather website, enter your desired location to continue
+        </div>
+        <% } %>
+    </div>
+    <div class="footer-container">
+        <footer id="footer">
+            <p>&copy; 2024 Web4You. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
